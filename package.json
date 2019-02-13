@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run clean && tslint -p tsconfig.json && tsc",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
