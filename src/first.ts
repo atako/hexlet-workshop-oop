@@ -1,1 +1,0 @@
-export default (first: number, second: number): number => first + second;

@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "get-geo": "./build/01/index.js"
+  },
   "scripts": {
-    "build": "npm run clean && tslint -p tsconfig.json && tsc",
+    "build": "tslint -p tsconfig.json && tsc",
     "test": "jest"
   },
   "keywords": [],
@@ -20,6 +23,8 @@
     "typescript": "^3.3.3"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "commander": "^2.19.0",
     "lodash": "^4.17.11",
     "ramda": "^0.26.1"
   }
