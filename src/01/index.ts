@@ -1,9 +1,8 @@
-#!/usr/bin/env node
-
 import fetchData from "./fetchData";
 
+export default fetchData;
 
-fetchData(process.argv).then(result => console.log(result));
+
 
 
 

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "bin": {
-    "get-geo": "./build/01/index.js"
+    "get-geo": "./build/bin/get-geo.js"
   },
   "scripts": {
     "build": "tslint -p tsconfig.json && tsc",

@@ -1,13 +1,13 @@
 import axios from "axios";
 import formatUrl from "./formatUrl";
 
+class Data {
 
-export default async (args: string[]) => {
-  const url = formatUrl(args);
-  try {
+  public async get(ip) {
+    const url = formatUrl(ip);
     const result = await axios.get(url);
     return result.data;
-  } catch (e) {
-    return e
   }
 }
+
+export default Data;
