@@ -1,5 +1,11 @@
 #!/usr/bin/env node
-import fetchData from "../fetchData"
+import extractIp from "../extractIp";
+import GeoLocator from "../geoLocator"
 
-const lib = new fetchData();
-lib.get(process.argv).then(result => console.log(result));
+const ip = extractIp(process.argv);
+
+(async () => {
+  const locator = new GeoLocator();
+  const result = await locator.getGeoInfo(ip)
+  console.log(result);
+})();

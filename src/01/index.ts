@@ -1,6 +1,6 @@
-import fetchData from "./fetchData";
+import geoLocator from "./geoLocator";
 
-export default fetchData;
+export default geoLocator;
 
 
 

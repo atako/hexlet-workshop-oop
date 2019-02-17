@@ -1,15 +1,30 @@
-import formatUrl from "../../src/01/formatUrl";
+import * as URI from 'urijs';
+import GeoLocator from "../../src/01";
 
-describe("test url formatter", () => {
-  test("defined argument", () => {
-    const result = formatUrl(["", "", "1.1.1.1"]);
-    const expected = "http://ip-api.com/json/1.1.1.1";
-    expect(result).toBe(expected);
+const createFakeGeoData = (url) => {
+  const city = URI.parse(url).path === "/json/" ? "Quezon City" : "Mountain View";
+  return { data: { city } };
+}
+
+const locator = new GeoLocator({
+  // @ts-ignore
+  get: (url) => {
+    const result = Promise.resolve(createFakeGeoData(url));
+    return result
+  }
+})
+
+
+describe("test GeoLocator", () => {
+  test("defined address", async () => {
+    const result = await locator.getGeoInfo("1.1.1.1");
+    const expected = { city: 'Mountain View' };
+    expect(result).toEqual(expected);
   });
 
-  test("empty argument", () => {
-    const result = formatUrl(["", ""]);
-    const expected = "http://ip-api.com/json/";
-    expect(result).toBe(expected);
+  test("empty address", async () => {
+    const result = await locator.getGeoInfo("");
+    const expected = { city: 'Quezon City' };
+    expect(result).toEqual(expected);
   });
 });

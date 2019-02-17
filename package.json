@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "bin": {
-    "get-geo": "./build/bin/get-geo.js"
+    "get-geo": "./build/01/bin/get-geo.js"
   },
   "scripts": {
     "build": "tslint -p tsconfig.json && tsc",
@@ -26,6 +26,7 @@
     "axios": "^0.18.0",
     "commander": "^2.19.0",
     "lodash": "^4.17.11",
-    "ramda": "^0.26.1"
+    "ramda": "^0.26.1",
+    "urijs": "^1.19.1"
   }
 }
