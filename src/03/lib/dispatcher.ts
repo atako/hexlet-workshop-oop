@@ -4,13 +4,13 @@ import openweatherService from "./services/openweather";
 import apixuService from "./services/apixu";
 import unsupportedService from "./services/unsupported";
 
-const defaultService = "openweather";
 
-export default (serviceName = defaultService, httpLib?) => {
+export default (serviceName, httpLib?) => {
+  const service = serviceName === "" ? "openweather" : serviceName;
   const services = {
     "openweather": openweatherService,
     "apixu": apixuService
   }
-  const SelectedService = _.get(services, serviceName) || unsupportedService;
+  const SelectedService = _.get(services, service) || unsupportedService;
   return new SelectedService(httpLib);
 }

@@ -59,4 +59,15 @@ describe("test weather lib", () => {
     const result = await lib.getWeather("singapore", "notsupported");
     expect(result).toEqual({ error: "This service not supported" })
   });
+
+  test("service not defined", async () => {
+    const result = await lib.getWeather("singapore", "", fakeHttpClient);
+    expect(result).toEqual({
+      temperature: 21,
+      windSpeed: 6.2,
+      windDegree: 100,
+      humidity: 74,
+      service: 'OPENWEATHER'
+    })
+  });
 });
