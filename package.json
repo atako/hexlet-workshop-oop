@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "bin": {
-    "get-geo": "./build/01/bin/get-geo.js"
+    "get-geo": "./build/01/bin/get-geo.js",
+    "weather": "./build/03/bin/weather.js"
   },
   "scripts": {
     "build": "tslint -p tsconfig.json && tsc",
@@ -27,6 +28,7 @@
     "commander": "^2.19.0",
     "lodash": "^4.17.11",
     "ramda": "^0.26.1",
-    "urijs": "^1.19.1"
+    "urijs": "^1.19.1",
+    "yargs": "^13.2.0"
   }
 }
